@@ -1,4 +1,4 @@
-# Next.Js-Authentication-Starter-Pack
+# About Me Page Built in Next Js
 
 ## Installation:
 
