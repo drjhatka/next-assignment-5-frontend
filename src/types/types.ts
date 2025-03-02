@@ -14,14 +14,14 @@ export default interface Project extends Document{
     updatedAt: Date;
 }
 
-export interface Comments extends Document{
+export interface Comments{
     blogId: string;
     userId: string;
     name: string;
     body: string;
 }
 
-export interface Blog extends Document{
+export interface Blog{
     title:string;
     body:string;
     author:TUser;

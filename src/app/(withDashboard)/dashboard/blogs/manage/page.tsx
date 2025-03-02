@@ -1,16 +1,22 @@
 
 import {getAllBlogs} from "@/app/actions/BlogActions";
-import BlogCardUI from "@/components/shared/BlogCard";
+import PageHeader from "@/components/shared/PageHeader";
+import BlogCardAdmin from "@/components/shared/BlogCardAdmin";
 
-const Page = async() => {
+const ManageBlogPage = async () => {
     const blogs = await getAllBlogs();
+    console.log(blogs);
     return (
-        <div className={'grid md:grid-cols-2 lg:grid-cols-3 gap-5'}>
-            {
-                blogs?.data?.map((blog) => (<BlogCardUI key={blog.id} blog={blog} />))
+        <>
+            <PageHeader title={'Manage Blogs'}></PageHeader>
+            <div className={'grid md:grid-cols-2 lg:grid-cols-3 gap-5'}>
+                {
+                    //@ts-expect-error mongoose _id cant be defined
+                    blogs?.data?.map((blog) => (<BlogCardAdmin key={blog._id} blog={blog} />))
             }
         </div>
+        </>
     );
 };
 
-export default Page;
+export default ManageBlogPage;

@@ -26,7 +26,7 @@ const Sidebar = () => {
         </li>
         <li>
           <Link
-            href="/dashboard/blogs/create"
+            href="/dashboard/blogs/manage"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
             <FaPencilAlt className="h-5 w-5" />
