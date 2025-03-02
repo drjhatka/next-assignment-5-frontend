@@ -19,17 +19,7 @@ const MenuProps = {
     },
 };
 
-const names = [
-    'Next JS',
-    'React',
-    'TypeScript',
-    'MongoDB',
-    'Express',
-    'Prisma',
-    'AWS Cloud',
-    'Redux',
-    'Javascript',
-];
+
 
 function getStyles(name: string, personName: readonly string[], theme: Theme) {
     return {
@@ -39,30 +29,25 @@ function getStyles(name: string, personName: readonly string[], theme: Theme) {
     };
 }
 
-export default function MultipleSelectChip() {
+export default function MultipleSelectChip({name,values, label, id}:{name:string,values:string[], label:string, id: string}) {
     const theme = useTheme();
-    const [personName, setPersonName] = React.useState<string[]>([]);
+    const [techName, setSelectedTech] = React.useState<string[]>([]);
 
-    const handleChange = (event: SelectChangeEvent<typeof personName>) => {
-        const {
-            target: { value },
-        } = event;
-        setPersonName(
-            // On autofill we get a stringified value.
-            typeof value === 'string' ? value.split(',') : value,
-        );
+    const handleChange = (event:any) => {
+        setSelectedTech(event.target.value);
     };
 
     return (
         <div>
-            <FormControl fullWidth sx={{ m: 1, width: 300 }}>
-                <InputLabel id="demo-multiple-chip-label">Select Technology Stacks</InputLabel>
+            <FormControl fullWidth sx={{ m: 1, width: 250 }}>
+                <InputLabel id="demo-multiple-chip-label">{label}</InputLabel>
                 <Select
-                    fullWidth
+                    name={name}
+                    required={true}
                     labelId="demo-multiple-chip-label"
-                    id="demo-multiple-chip"
+                    id={id}
                     multiple
-                    value={personName}
+                    value={techName}
                     onChange={handleChange}
                     input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
                     renderValue={(selected) => (
@@ -74,11 +59,11 @@ export default function MultipleSelectChip() {
                     )}
                     MenuProps={MenuProps}
                 >
-                    {names.map((name) => (
+                    {values.map((name) => (
                         <MenuItem
                             key={name}
                             value={name}
-                            style={getStyles(name, personName, theme)}
+                            style={getStyles(name, techName, theme)}
                         >
                             {name}
                         </MenuItem>

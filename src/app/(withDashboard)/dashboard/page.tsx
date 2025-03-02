@@ -1,26 +1,18 @@
 "use client"
-import InputGroup from "@/components/shared/Form/InputGroup";
-import TextInputField from "@/components/shared/Form/TextInputField";
-import MultipleSelectChip from "@/components/shared/Form/MultiSelect";
 
+import MUIButton from "@/components/shared/ShinyMenu";
+import React from "react";
 
 const DashboardPage = () => {
   return (
     <div>
       <h1 className="text-4xl text-center mt-10 ">Welcome To Dashboard Page</h1>
-       <div className=' shadow-xl py-3'>
-           <InputGroup elements ={
-               [
-               <TextInputField key={'project-name'} config={{label:'Project Name', defaultValue:'React Finance Project', colSpan:'2'}}/>,
-               <TextInputField key={'project-description'} config={{label:'Project Description', defaultValue:'Project Description Here'}}/>,
-                ]
-           }/>
-           <InputGroup elements={[
-                   <MultipleSelectChip key={'multi'} />
-
-           ]}/>
-
-       </div>
+        <div className={'grid  lg:grid-col-1  md:grid-cols-2 md:gap-4 mt-5'}>
+            <MUIButton href={'/dashboard/projects/manage'  }  >Manage Projects</MUIButton>
+            <MUIButton href={'/dashboard/blogs/manage'  }  >Manage Blogs</MUIButton>
+            <MUIButton href={'/dashboard/messages/manage'  }  >Manage Messages</MUIButton>
+            <MUIButton href={'/dashboard/users/manage'  }  >Manage User</MUIButton>
+        </div>
     </div>
   );
 };

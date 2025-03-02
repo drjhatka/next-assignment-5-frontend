@@ -14,11 +14,23 @@ export default interface Project extends Document{
     updatedAt: Date;
 }
 
-export interface Blog {
+export interface Comments extends Document{
+    blogId: string;
+    userId: string;
+    name: string;
+    body: string;
+}
+
+export interface Blog extends Document{
     title:string;
     body:string;
-    author:string;
-    image:string;
+    author:TUser;
+    comments?:Comments[];
+    category?:string;
+    externalLink?:string;
+    rating?:string;
+    imageUrl:string;
+    tags?:string[];
     createdAt: Date;
     updatedAt: Date;
 }

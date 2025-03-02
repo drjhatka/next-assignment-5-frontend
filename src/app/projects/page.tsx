@@ -13,7 +13,7 @@ const AllProjectsPage = async () => {
         </div>
       <div className='grid md:grid-cols-2  lg:grid-cols-3 md:gap-5 lg:gap-5 gap-y-5'>
         {projects.data.map((project: Project) => (
-          <ProjectCard key={project.name} project={project}></ProjectCard>
+          <ProjectCard key={project._id} project={project}></ProjectCard>
         ))}
       </div>
     </div>

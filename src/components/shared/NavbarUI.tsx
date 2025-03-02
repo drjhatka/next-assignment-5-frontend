@@ -215,7 +215,7 @@ const NavbarUI = () => {
                         label={
                           <p>
                             <Link
-                              href='/projects'
+                              href='/dashboard/projects/create/'
                               style={{
                                 textDecoration: 'none',
                                 color: 'white'
@@ -344,7 +344,7 @@ const NavbarUI = () => {
                         <TimelineIcon />
                       </ListItemIcon>
                       <Link
-                        href='/projects'
+                        href='dashboard/projects/create'
                         style={{ textDecoration: 'none', color: 'red' }}
                       >
                         <ListItemText

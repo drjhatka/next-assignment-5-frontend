@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { FaUser, FaCog, FaHome } from "react-icons/fa";
+import {FaCog, FaEnvelope, FaHome, FaPencilAlt, FaPencilRuler, FaWrench} from "react-icons/fa";
+import {FaBriefcase, FaPencil, FaUserGroup} from "react-icons/fa6";
 
 const Sidebar = () => {
   return (
@@ -16,20 +17,38 @@ const Sidebar = () => {
         </li>
         <li>
           <Link
-            href="/dashboard/user-info"
+            href="/dashboard/projects/create"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
-            <FaUser className="h-5 w-5" />
-            <span>User Info</span>
+            <FaBriefcase className="h-5 w-5" />
+            <span>Manage Projects</span>
           </Link>
         </li>
         <li>
           <Link
-            href="/dashboard/"
+            href="/dashboard/blogs/create"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
-            <FaCog className="h-5 w-5" />
-            <span>Settings</span>
+            <FaPencilAlt className="h-5 w-5" />
+            <span>Manage Blogs</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+              href="/dashboard/blogs/create"
+              className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
+          >
+            <FaEnvelope className="h-5 w-5" />
+            <span>Manage Messages</span>
+          </Link>
+        </li>
+        <li>
+          <Link
+              href="/dashboard/blogs/create"
+              className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
+          >
+            <FaUserGroup className="h-5 w-5" />
+            <span>Manage Users</span>
           </Link>
         </li>
       </ul>
