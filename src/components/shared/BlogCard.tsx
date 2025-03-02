@@ -56,8 +56,8 @@ export default function BlogCardUI({blog}:{blog: Blog}) {
     <Card sx={{ maxWidth: 345 }}>
       <CardHeader
         avatar={
-          <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
-            R
+          <Avatar sx={{ bgcolor: red[500] }} aria-label="blog">
+            {M}
           </Avatar>
         }
         action={
@@ -65,14 +65,14 @@ export default function BlogCardUI({blog}:{blog: Blog}) {
             <MoreVertIcon />
           </IconButton>
         }
-        title="Shrimp and Chorizo Paella"
+        title={blog.title}
         subheader="September 14, 2016"
       />
       <CardMedia
         component="img"
         height="50"
-        image={blog.image}
-        alt="Paella dish"
+        image={blog.imageUrl}
+        alt="Blog"
       />
       <CardContent>
         <Typography variant="body2" sx={{ color: 'text.secondary' }}>

@@ -1,11 +1,12 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { createUser } from "../actions/createUser";
+
 import { ToastContainer, toast } from 'react-toastify';
 import { useForm } from 'react-hook-form';
 import {redirect} from "next/navigation";
 import {TUser} from "@/types/types";
+import {createUser} from "@/app/actions/UserActions";
 
 const RegisterPage = () => {
 
