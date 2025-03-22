@@ -14,7 +14,7 @@ export const createBlog = async(blogData:Blog)=>{
 }
 
 export const getBlogs = async(blogId:string)=>{
-
+    console.log(blogId)
 }
 
 export const getAllBlogs = async()=> {
@@ -24,6 +24,10 @@ export const getAllBlogs = async()=> {
     return await response.json()
 }
 
-export const updateBlog = async(blogData:Blog)=>{}
+export const updateBlog = async(blogData:Blog)=>{
+    console.log(blogData)
+}
 
-export const deleteBlog = async(blogId:string)=>{}
+export const deleteBlog = async(blogId:string)=>{
+    console.log(blogId)
+}

@@ -1,6 +1,6 @@
 import Link from "next/link";
-import {FaCog, FaEnvelope, FaHome, FaPencilAlt, FaPencilRuler, FaWrench} from "react-icons/fa";
-import {FaBriefcase, FaPencil, FaUserGroup} from "react-icons/fa6";
+import { FaEnvelope, FaHome, FaPencilAlt} from "react-icons/fa";
+import {FaBriefcase,FaUserGroup} from "react-icons/fa6";
 
 const Sidebar = () => {
   return (

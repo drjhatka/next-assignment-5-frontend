@@ -5,14 +5,15 @@ import {useAppSelector} from "@/lib/hooks";
 import {getUser} from "@/app/actions/UserActions";
 import {createBlog} from "@/app/actions/BlogActions";
 import {toast, ToastContainer} from "react-toastify";
+import { AuthUserState } from "@/lib/features/auth/authSlice";
 
 const Page = () => {
-    const reduxUser = useAppSelector(state => state.auth);
+    const reduxUser:AuthUserState|null = useAppSelector(state => state.auth)as AuthUserState|null;
     //console.log('Redxu ,',reduxUser);
 
     const onSubmit = async(formData:FormData) => {
-        const currentUser = await getUser(reduxUser.email);
-        const blog = {...formData, user:currentUser.data._id};
+        const currentUser = await getUser(reduxUser?.email as string);
+        const blog:any = {...formData, user:currentUser.data._id};
         const createdBlog = await  createBlog(blog)
         if(createdBlog.success){
             toast.success("Blog Successfully created");

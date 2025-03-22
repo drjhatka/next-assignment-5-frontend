@@ -40,7 +40,7 @@ export const createUser = async(userData:TUser)=>{
     return await response.json()
 }
 
-export const getUser =async(email:{email:string})=> {
+export const getUser =async(email:string)=> {
     const response = await fetch(process.env.NEXT_BACKEND_URL+'/users/'+email)
     return await response.json()
 }

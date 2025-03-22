@@ -30,7 +30,7 @@ const features: string[] = [
 
 const CreateProjectPage = () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [state, action] = useActionState(projectActions, undefined);
+    const [state, action] = useActionState(createProject, undefined);
     const  {pending}= useFormStatus()
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();

@@ -1,7 +1,6 @@
 import ProjectCard from '@/components/shared/ProjectCard'
 import TitleBar from '@/components/shared/TitleBar'
 import Project from '@/types/types'
-import { useEffect } from 'react'
 
 const AllProjectsPage = async () => {
   

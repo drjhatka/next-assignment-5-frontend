@@ -3,7 +3,7 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 export type AuthUserState ={
     email: string | null;
     role: string | null;
-    accessToken: string | null;
+    accessToken?: string | null;
 }
 const initialState : AuthUserState = {
     email: null,

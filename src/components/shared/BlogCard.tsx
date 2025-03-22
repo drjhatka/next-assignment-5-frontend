@@ -13,7 +13,6 @@ import ShareIcon from '@mui/icons-material/Share';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 import  { Blog } from '@/types/types';
 import Link from "next/link";
-import PageHeader from "@/components/shared/PageHeader";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;

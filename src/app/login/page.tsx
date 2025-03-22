@@ -10,11 +10,11 @@ import {authUtils} from "@/utils/auth.utils";
 
 import {loginUser} from "@/app/actions/UserActions";
 import {useEffect} from "react";
-import {redirect, useRouter} from "next/navigation";
+import {redirect} from "next/navigation";
 
 const LoginPage = () => {
     const authUser = useAppSelector(state => state.auth.email);
-    const router = useRouter();
+    //const router = useRouter();
 
     useEffect(() => {
         if(authUser){

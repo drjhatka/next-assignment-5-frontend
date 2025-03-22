@@ -1,7 +1,6 @@
 "use client";
 
 import { Card, CardContent, CardMedia, Typography, Button, Chip, Box, Stack } from "@mui/material";
-import GitHubIcon from "@mui/icons-material/GitHub";
 import LaunchIcon from "@mui/icons-material/Launch";
 import { FC } from "react";
 import Image from "next/image";

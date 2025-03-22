@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Typography, Chip, Button, Box } from "@mui/material";
+import { Card, CardContent, Typography, Chip, Button, Box } from "@mui/material";
 import { GitHub, OpenInNew } from "@mui/icons-material";
 import { notFound } from "next/navigation";
 import {getAProject} from "@/app/actions/ProjectActions";
