@@ -17,7 +17,7 @@ const Sidebar = () => {
         </li>
         <li>
           <Link
-            href="/dashboard/projects/create"
+            href="/dashboard/projects/manage/"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
             <FaBriefcase className="h-5 w-5" />

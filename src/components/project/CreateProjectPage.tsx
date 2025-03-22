@@ -3,7 +3,7 @@ import PageHeader from "@/components/shared/PageHeader";
 import {projectActions} from "@/app/actions/ProjectActions";
 import {Button, Input} from "@mui/material";
 import MultipleSelectChip from "@/components/shared/Form/MultiSelect";
-import {startTransition, useActionState} from "react";
+import {FormEvent, startTransition, useActionState} from "react";
 import {toast, ToastContainer} from "react-toastify";
 import {redirect} from "next/navigation";
 import {useFormStatus} from "react-dom";
@@ -30,7 +30,7 @@ const features: string[] = [
 
 const CreateProjectPage = () => {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const [ state,action] = useActionState(projectActions, {});
+    const [state, action] = useActionState(projectActions, undefined);
     const  {pending}= useFormStatus()
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();

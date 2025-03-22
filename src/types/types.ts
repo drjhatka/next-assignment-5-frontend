@@ -1,11 +1,12 @@
 export default interface Project extends Document{
+    _id?: string;
     name:string;
     description:string;
     technologies: string[];
     repositoryUrl: string;
     liveUrl?: string;
     imageUrl?: string;
-    category: string; // e.g., "Web App", "Mobile App", "Open Source"
+    category: string[]; // e.g., "Web App", "Mobile App", "Open Source"
     features?: string[]; // List of key features
     contributors?: string[]; // List of contributors' names or user IDs
     status: "In Progress" | "Completed" | "Maintenance"; // Project status

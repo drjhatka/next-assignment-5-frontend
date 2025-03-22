@@ -1,8 +1,10 @@
 import ProjectCard from '@/components/shared/ProjectCard'
 import TitleBar from '@/components/shared/TitleBar'
 import Project from '@/types/types'
+import { useEffect } from 'react'
 
 const AllProjectsPage = async () => {
+  
   const response = await fetch(process.env.NEXT_BACKEND_URL + '/projects')
   const projects = await response.json()
   return (

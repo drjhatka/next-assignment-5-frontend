@@ -1,10 +1,19 @@
+"use server"
 import React from 'react';
-import MUIButton from "@/components/shared/ShinyMenu";
+import {getAllProjects} from "@/app/actions/ProjectActions";
+import ProjectCardAdmin from "@/components/shared/ProjectCardAdmin";
+import Project from "@/types/types";
 
-const ManageProjectPage = () => {
+const ManageProjectPage = async() => {
+    const projects = await  getAllProjects();
+    console.log("Pro",projects);
     return (
-        <div>
-            <MUIButton href={'/dashboard/projects/manage'  }  >Manage Projects</MUIButton>
+        <div className={'grid lg:grid-cols-2 gap-4'}>
+            {
+                projects?.data.map((project:Project) => {
+                   return <ProjectCardAdmin key={project.title} project={project}></ProjectCardAdmin>
+                })
+            }
         </div>
     );
 };

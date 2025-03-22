@@ -7,16 +7,12 @@ import { FC } from "react";
 import Image from "next/image";
 import Project  from "@/types/types";
 import { motion } from 'motion/react';
+import Link from "next/link";
+import {OpenInBrowser} from "@mui/icons-material";
+import {BiPencil} from "react-icons/bi";
+import {IoTrashBin} from "react-icons/io5";
 
-const ProjectCard: FC<{ project: Project }> = ({ project }) => {
-  // const myAnimation = {
-  //   hover: { borderColor: 'transparent', scale: 1.1 },
-  //   tap: { borderColor: 'transparent', scale: 0.95 },
-  //   focus: { borderColor: 'white', 
-  //            scale: 1.1, 
-  //            transition: { duration: 0.15 } 
-  //          },
-  //  };
+const ProjectCardAdmin: FC<{ project: Project }> = ({ project }) => {
   return (
     <motion.div
     initial={{ opacity: 0 }}
@@ -25,14 +21,16 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => {
     >
     <Card sx={{  borderRadius: 3, boxShadow: 3, p: 2 }}>
       {/* Project Image */}
+
       {project.imageUrl && (
-        <CardMedia>
+        <CardMedia sx={{height:100}} >
+
           <Image
             src={project.imageUrl}
             alt={project.name}
-            width={150}
-            height={150}
-            style={{ objectFit: "cover", margin:'auto', borderRadius: "12px" }}
+            width={100}
+            height={100}
+            style={{ objectFit:'contain', margin:'auto', maxHeight:'150px', borderRadius: "12px" }}
           />
         </CardMedia>
       )}
@@ -62,14 +60,10 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => {
           sx={{ mt: 1, mb: 1 }}
         />
 
-        {/* Project Description */}
-        <Typography variant="body2" sx={{ mb: 1.5 }}>
-          {project.description}
-        </Typography>
 
         {/* Technology Chips */}
         <Stack direction="row" spacing={1} sx={{ flexWrap: "wrap", mb: 2 }}>
-          {project.technologies.map((tech:string, index:number) => (
+          {project.technologies.slice(0,3).map((tech:string, index:number) => (
             <Chip key={index} label={tech} variant="outlined" size="small" />
           ))}
         </Stack>
@@ -77,7 +71,7 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => {
         {/* Features List (if available) */}
         {project.features && project.features.length > 0 && (
           <Typography variant="body2" sx={{ mb: 1 }}>
-            <strong>Key Features:</strong> {project.features.join(", ")}
+            <strong>Key Features:</strong> {project.features.slice(0,3).join(", ")}
           </Typography>
         )}
 
@@ -90,15 +84,39 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => {
 
         {/* Action Buttons */}
         <Box display="flex" justifyContent="space-around" paddingTop={2} borderTop={4} color={'red'} boxShadow={2} borderRadius={5} paddingY={2} >
+          <Link href={'/dashboard/projects/'+project._id}>
           <Button
             variant="contained"
             size="small"
-            startIcon={<GitHubIcon />}
+            startIcon={<OpenInBrowser />}
             href={project.repositoryUrl}
             target="_blank"
           >
-            GitHub
+            View
           </Button>
+          </Link>
+          <Link href={'/dashboard/projects/update/'+project._id}>
+            <Button
+                variant="contained"
+                size="small"
+                startIcon={<BiPencil />}
+                href={project.repositoryUrl}
+                target="_blank"
+            >
+              Edit
+            </Button>
+          </Link>
+          <Link href={'/dashboard/projects/'+project._id}>
+            <Button
+                variant="contained"
+                size="small"
+                startIcon={<IoTrashBin />}
+                href={project.repositoryUrl}
+                target="_blank"
+            >
+              Delete
+            </Button>
+          </Link>
           {project.liveUrl && (
             <Button
               variant="outlined"
@@ -118,4 +136,4 @@ const ProjectCard: FC<{ project: Project }> = ({ project }) => {
   );
 };
 
-export default ProjectCard;
+export default ProjectCardAdmin;

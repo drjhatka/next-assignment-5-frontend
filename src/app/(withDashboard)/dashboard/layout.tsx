@@ -1,5 +1,6 @@
 import Sidebar from "@/components/shared/Sidebar";
 import type { Metadata } from "next";
+import {ReactNode} from "react";
 
 export const metadata: Metadata = {
   title: "Next Auth Dashboard",

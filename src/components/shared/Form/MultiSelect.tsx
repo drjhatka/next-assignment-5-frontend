@@ -19,6 +19,14 @@ const MenuProps = {
     },
 };
 
+export type MultiSelectProps = {
+    name:string;
+    values:string[];
+    label:string;
+    id: string;
+    selected?: string[];
+}
+
 
 
 function getStyles(name: string, personName: readonly string[], theme: Theme) {
@@ -29,11 +37,13 @@ function getStyles(name: string, personName: readonly string[], theme: Theme) {
     };
 }
 
-export default function MultipleSelectChip({name,values, label, id}:{name:string,values:string[], label:string, id: string}) {
+export default function MultipleSelectChip({name, values, label, id, selected}:MultiSelectProps) {
+    console.log("Seelcted ",selected);
     const theme = useTheme();
-    const [techName, setSelectedTech] = React.useState<string[]>([]);
+    const [multiValues, setSelectedTech] = React.useState<string[]>(selected||[]);
 
-    const handleChange = (event:any) => {
+    //@ts-expect-error event could be of any type
+    const handleChange = (event) => {
         setSelectedTech(event.target.value);
     };
 
@@ -47,23 +57,23 @@ export default function MultipleSelectChip({name,values, label, id}:{name:string
                     labelId="demo-multiple-chip-label"
                     id={id}
                     multiple
-                    value={techName}
+                    value={values}
                     onChange={handleChange}
                     input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
-                    renderValue={(selected) => (
+                    renderValue={() => (
                         <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                            {selected.map((value) => (
+                            {multiValues.map((value) => (
                                 <Chip key={value} label={value} />
                             ))}
                         </Box>
                     )}
                     MenuProps={MenuProps}
                 >
-                    {values.map((name) => (
+                    {values?.map((name) => (
                         <MenuItem
                             key={name}
                             value={name}
-                            style={getStyles(name, techName, theme)}
+                            style={getStyles(name, values, theme)}
                         >
                             {name}
                         </MenuItem>
