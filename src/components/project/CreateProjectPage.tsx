@@ -1,6 +1,6 @@
 "use client"
 import PageHeader from "@/components/shared/PageHeader";
-import {projectActions} from "@/app/actions/ProjectActions";
+import {createProject} from "@/app/actions/ProjectActions";
 import {Button, Input} from "@mui/material";
 import MultipleSelectChip from "@/components/shared/Form/MultiSelect";
 import {FormEvent, startTransition, useActionState} from "react";
