@@ -11,7 +11,7 @@ interface ProjectViewProps {
 export default async function ProjectView({ params }: ProjectViewProps) {
     const projectId = await params.projectId;
     const response = await getAProject(projectId);
-    // @ts-expect-error thats how the server sends data
+    
     const project = response?.data;
 
     if (!project) {
