@@ -28,7 +28,7 @@ const ProjectUpdatePage = () => {
              // @ts-expect-error data does exist and it does
              setProject(data.data)
          });
-    }, []);
+    }, [projectId]);
 
     return (
     <div>
