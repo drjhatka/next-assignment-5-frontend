@@ -13,6 +13,7 @@ const Page = () => {
 
     const onSubmit = async(formData:FormData) => {
         const currentUser = await getUser(reduxUser?.email as string);
+        //@ts-ignore
         const blog:any = {...formData, user:currentUser.data._id};
         const createdBlog = await  createBlog(blog)
         if(createdBlog.success){
