@@ -1,7 +1,7 @@
 "use server"
 import {Blog} from "@/types/types";
 
-export const createBlog = async(blogData:Blog)=>{
+export const createBlog = async(blogData:Partial<Blog>)=>{
     const response = await fetch( process.env.NEXT_BACKEND_URL+'/blogs/',{
         method:"POST",
         headers:{

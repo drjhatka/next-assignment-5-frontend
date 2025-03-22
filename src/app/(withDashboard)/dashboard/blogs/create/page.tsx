@@ -13,8 +13,8 @@ const Page = () => {
     
     const onSubmit = async(formData:FormData) => {
         const currentUser = await getUser(reduxUser?.email as string);
-        //@ts-ignore
-        const blog:Blog = {...formData, user:currentUser.data._id};
+        
+        const blog:Partial<Blog> = {...formData, author:currentUser.data._id};
         const createdBlog = await  createBlog(blog)
         if(createdBlog.success){
             toast.success("Blog Successfully created");
