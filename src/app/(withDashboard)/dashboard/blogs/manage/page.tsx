@@ -1,4 +1,4 @@
-
+'use server'
 import {getAllBlogs} from "@/app/actions/BlogActions";
 import PageHeader from "@/components/shared/PageHeader";
 import BlogCardAdmin from "@/components/shared/BlogCardAdmin";

@@ -2,7 +2,7 @@
 import {Blog} from "@/types/types";
 
 export const createBlog = async(blogData:Partial<Blog>)=>{
-    const response = await fetch( process.env.NEXT_BACKEND_URL+'/blogs/',{
+    const response = await fetch( process.env.NEXT_PUBLIC_BACKEND_URL+'/blogs/',{
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -18,7 +18,7 @@ export const getBlogs = async(blogId:string)=>{
 }
 
 export const getAllBlogs = async()=> {
-    const response =await fetch(process.env.NEXT_BACKEND_URL+'/blogs/', {
+    const response =await fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/blogs/', {
         method:"GET",
     })
     return await response.json()

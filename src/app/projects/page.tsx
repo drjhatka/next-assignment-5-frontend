@@ -4,7 +4,7 @@ import Project from '@/types/types'
 
 const AllProjectsPage = async () => {
   
-  const response = await fetch(process.env.NEXT_BACKEND_URL + '/projects')
+  const response = await fetch(process.env.NEXT_PUBLIC_BACKEND_URL + '/projects')
   const projects = await response.json()
   return (
     <div className='mt-20'>

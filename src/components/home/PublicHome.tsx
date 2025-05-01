@@ -7,7 +7,7 @@
 // import ProjectCard from '../shared/ProjectCard'
 import Project from '@/types/types'
 // import TitleBar from '../shared/TitleBar'
-// import BioBanner from './BioBanner'
+ import BioBanner from './BioBanner'
 import SkillCardContainer from './SkillCardContainer'
 // import NavbarUI from '../shared/NavbarUI'
 import ProjectsDrawer from './ProjectsDrawer'
@@ -19,7 +19,7 @@ const PublicHome = ({ projects }: { projects: Project[] }) => {
 
       <main className='flex flex-col items-center justify-center mt-16 text-center p-8'>
         {/* Hero Section */}
-        {/* <BioBanner></BioBanner> */}
+        <BioBanner></BioBanner>
 
         {/* Skills Section */}
         <SkillCardContainer></SkillCardContainer>

@@ -4,7 +4,7 @@ import {TUser} from "@/types/types";
 
 
 export const loginUser =async(loginData:{email:string, password:string})=> {
-    const response =await  fetch(process.env.NEXT_BACKEND_URL+'/auth/login',{
+    const response =await  fetch(process.env.NEXT_PUBLIC_BACKEND_URL+'/auth/login',{
         method: 'POST',
         credentials: 'include',
         headers: {

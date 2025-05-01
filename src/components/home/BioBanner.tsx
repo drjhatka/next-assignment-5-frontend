@@ -25,7 +25,7 @@ const BioBanner = () => {
       <div className='flex '>
         <div className='flex flex-col gap-2 justify-center items-center'>
           <div >
-            <h1 className='text-4xl text-red-700 font-bold'>Hi, I&#39m Bishawjit Dey</h1>
+            <h1 className='text-4xl text-red-700 font-bold'>Hi, I am Bishawjit Dey</h1>
           </div>
           <div className='border-2 italic px-5 shadow-lg py-3 '>
             <h1 className='text-red-500 font-bold'>MERN Stack Developer</h1>

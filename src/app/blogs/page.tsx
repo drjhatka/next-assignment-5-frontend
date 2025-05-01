@@ -1,4 +1,3 @@
-'use server'
 import BlogCardUI from "@/components/shared/BlogCard";
 import { getAllBlogs } from "@/app/actions/BlogActions";
 import PageHeader from "@/components/shared/PageHeader";
