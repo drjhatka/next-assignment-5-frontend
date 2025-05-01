@@ -4,7 +4,7 @@ import PageHeader from "@/components/shared/PageHeader";
 import { Blog } from "@/types/types";
 
 const AllBlogsPage = async () => {
-    const blogs = await getAllBlogs();
+    const blogs = await getAllBlogs();//beware of the next_public 
     return (
         <div>
             <PageHeader title={'All Blogs'}></PageHeader>
