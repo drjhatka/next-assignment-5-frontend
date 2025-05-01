@@ -1,50 +1,59 @@
 'use client'
 
-import React, {useState} from 'react'
-import Link from 'next/link' // Import the Link component from Next.js
-import AppBar from '@mui/material/AppBar'
-import Box from '@mui/material/Box'
-import Toolbar from '@mui/material/Toolbar'
-import IconButton from '@mui/material/IconButton'
-import Typography from '@mui/material/Typography'
-import MenuIcon from '@mui/icons-material/Menu'
-import Container from '@mui/material/Container'
-import Avatar from '@mui/material/Avatar'
-import { Tabs, Tab, useMediaQuery, useTheme } from '@mui/material'
-import InfoIcon from '@mui/icons-material/Info'
-import ManageAccountsIcon from '@mui/icons-material/ManageAccounts'
-import TimelineIcon from '@mui/icons-material/Timeline'
-import AddReactionIcon from '@mui/icons-material/AddReaction'
-import ContactMailIcon from '@mui/icons-material/ContactMail'
+import React, { useState } from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import { Tabs, Tab, useMediaQuery, useTheme } from '@mui/material';
+import InfoIcon from '@mui/icons-material/Info';
+import TimelineIcon from '@mui/icons-material/Timeline';
+import AddReactionIcon from '@mui/icons-material/AddReaction';
+import ContactMailIcon from '@mui/icons-material/ContactMail';
 import {
   List,
   ListItemButton,
   ListItemIcon,
   ListItemText,
   Menu
-} from '@mui/material'
-
-import { Home } from '@mui/icons-material'
-import CssBaseline from '@mui/material/CssBaseline'
-import logo from '../../../public/logo.svg'
-import Image from 'next/image'
-import HideOnScroll from './HideOnScroll'
-import NavbarDropDownMenu from './NavbarDropDownMenu'
+} from '@mui/material';
+import { Home } from '@mui/icons-material';
+import CssBaseline from '@mui/material/CssBaseline';
+import HideOnScroll from './HideOnScroll';
 
 const NavbarUI = () => {
+  const pathname = usePathname();
+  const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const theme = useTheme();
+  const isMatch = useMediaQuery(theme.breakpoints.down('md'));
 
-  // @ts-expect-error event could be of any type
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget)
-  }
-  const [anchorElNav, setAnchorElNav] =useState(null)
+  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorElNav(event.currentTarget);
+  };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null)
-  }
+    setAnchorElNav(null);
+  };
 
-  const theme = useTheme()
-  const isMatch = useMediaQuery(theme.breakpoints.down('md'))
+  const tabs = [
+    { value: '1', label: 'Home', icon: <Home />, href: '/' },
+    { value: '4', label: 'Projects', icon: <TimelineIcon />, href: '/projects' },
+    { value: '2', label: 'About', icon: <InfoIcon />, href: '/about' },
+    // { value: '3', label: 'Skills', icon: <ManageAccountsIcon />, href: '/skills' },
+    { value: '5', label: 'Blogs', icon: <AddReactionIcon />, href: '/blogs' },
+    { value: '6', label: 'Contact', icon: <ContactMailIcon />, href: '/contact' },
+  ];
+
+  const isActive = (href: string) => {
+    if (href === '/') return pathname === '/';
+    return pathname?.startsWith(href) || false;
+  };
 
   return (
     <>
@@ -57,7 +66,7 @@ const NavbarUI = () => {
             right: '3.2%',
             borderRadius: '30px',
             background:
-              'linear-gradient( 60deg, rgba(85, 18, 228, 0.647) 0%, rgba(19, 53, 138, 0.696) 100% )'
+              'linear-gradient( 60deg, rgba(85, 18, 228, 0.647) 0%, rgba(19, 53, 138, 0.696) 100% )',
           }}
         >
           <Container maxWidth='xl'>
@@ -72,9 +81,9 @@ const NavbarUI = () => {
                   display: { xs: 'none', md: 'flex' },
                   fontFamily: 'monospace',
                   fontWeight: 700,
-                  letterSpacing: '.3rem',
-                  color: 'inherit',
-                  textDecoration: 'none'
+                  letterSpacing: '.1rem',
+                  color: 'orange',
+                  textDecoration: 'none',
                 }}
                 className='cursorp'
               >
@@ -82,14 +91,17 @@ const NavbarUI = () => {
                   sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }}
                   className='cursorp Tab8 animate__animated animate__backInLeft'
                 >
-                  <Image
+                  <Typography className=' font-bold text-3xl bg-red-500 rounded-full p-5' >
+                  BK
+                  </Typography>
+                  {/* <Image
                     src={logo}
                     style={{ width: '100%', height: 'auto' }}
                     alt='logo'
                     width={100}
                     height={100}
                     loading='lazy'
-                  />
+                  /> */}
                 </Avatar>
               </Typography>
 
@@ -117,27 +129,27 @@ const NavbarUI = () => {
                   flexGrow: 1,
                   fontFamily: 'monospace',
                   fontWeight: 700,
-                  letterSpacing: '.3rem',
+                  letterSpacing: '.1rem',
                   color: 'inherit',
-                  textDecoration: 'none'
+                  fontSize:'.9rem',
+                  textDecoration: 'none',
                 }}
               >
-                {' '}
-                <Avatar
-                  // alt="logo"
-                  // src="https://res.cloudinary.com/dtvtphhsc/image/upload/fl_immutable_cache.preserve_transparency.progressive.sprite/v1693672396/logo_1_lk0neo.webp"
-                  sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
-                >
-                  <Image
+                <Avatar sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}>
+                <Typography className=' font-bold text-3xl bg-red-500 rounded-full p-5' >
+                  BK
+                  </Typography>
+                  {/* <Image
                     src={logo}
                     style={{ width: '100%', height: 'auto' }}
                     alt='logo'
                     width={100}
                     height={100}
                     loading='lazy'
-                  />
+                  /> */}
                 </Avatar>
               </Typography>
+
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 {isMatch ? (
                   <IconButton
@@ -151,236 +163,103 @@ const NavbarUI = () => {
                     <MenuIcon />
                   </IconButton>
                 ) : (
-                  <>
-                    {/* LG ICONS */}
-                    <Tabs centered sx={{ margin: 'auto' }}>
+                  <Tabs 
+                    value={false} // Disable built-in selection
+                    centered 
+                    sx={{ margin: 'auto' }}
+                  >
+                    {tabs.map((tab) => (
                       <Tab
-                        value='1'
-                        label={
-                          <p>
-                            <Home /> Home
-                          </p>
-                        }
-                        onClick={() => {
-                          window.location.href = '/'
-                        }}
-                        style={{
-                          textDecoration: 'none',
-                          color: 'white'
-                        }}
-                        className='Tab1 animate__animated animate__zoomIn'
-                      />
-
-                      <Tab
-                          value='2'
+                        key={tab.value}
+                        value={tab.value}
                         label={
                           <Link
-                            href='/'
+                            href={tab.href}
                             style={{
                               textDecoration: 'none',
-                              color: 'white',
-                              opacity: '1'
+                              color: isActive(tab.href) ? '#ffdddd' : 'white',
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '4px',
                             }}
                           >
-                            <p>
-                              {' '}
-                              <InfoIcon /> About
-                            </p>
+                            {tab.icon}
+                            {tab.label}
                           </Link>
                         }
-                        className='Tab2 animate__animated animate__zoomIn'
-                      ></Tab>
-
-                      <Tab
-                        value='3'
-                        label={
-                          <p>
-                            <Link
-                              href='/'
-                              style={{
-                                textDecoration: 'none',
-                                color: 'white'
-                              }}
-                            >
-                              {' '}
-                              <ManageAccountsIcon /> Skills
-                            </Link>
-                          </p>
-                        }
-                        className='Tab3 animate__animated animate__zoomIn'
+                        className={`animate__animated animate__zoomIn ${isActive(tab.href) ? 'active-tab' : ''}`}
+                        sx={{
+                          '&.active-tab': {
+                            borderBottom: '2px solid #ffffff',
+                            
+                            fontWeight: 'bold',
+                          },
+                          '&:hover': {
+                            opacity: 0.9,
+                          },
+                        }}
                       />
-
-                      <Tab
-                        value='1'
-                        label={
-                          <p>
-                            <Link
-                              href='/dashboard/projects/create/'
-                              style={{
-                                textDecoration: 'none',
-                                color: 'white'
-                              }}
-                            >
-                              <TimelineIcon /> Projects
-                            </Link>
-                          </p>
-                        }
-                        className='Tab3 animate__animated animate__zoomIn'
-                      />
-
-                      <Tab
-                        value='1'
-                        label={
-                          <p>
-                            <Link
-                              href='/blogs'
-                              style={{
-                                textDecoration: 'none',
-                                color: 'white'
-                              }}
-                            >
-                              {' '}
-                              <AddReactionIcon /> Blogs
-                            </Link>
-                          </p>
-                        }
-                        className='Tab5 animate__animated animate__zoomIn'
-                      />
-                      <Tab
-                        value='1'
-                        label={
-                          <p>
-                            <Link
-                              href='/contact'
-                              style={{
-                                textDecoration: 'none',
-                                color: 'white'
-                              }}
-                            >
-                              <ContactMailIcon /> Contact
-                            </Link>
-                          </p>
-                        }
-                        className='Tab6 animate__animated animate__zoomIn'
-                      />
-                    </Tabs>
-                  </>
+                    ))}
+                  </Tabs>
                 )}
               </Box>
 
               <Box sx={{ flexGrow: 0 }}>
-                <NavbarDropDownMenu />
+                {/* <NavbarDropDownMenu /> */}
 
-                {/* Responsive DropDown Menus */}
                 <Menu
                   id='menu-appbar-avatar'
                   anchorEl={anchorElNav}
                   anchorOrigin={{
                     vertical: 'bottom',
-                    horizontal: 'right'
+                    horizontal: 'right',
                   }}
                   keepMounted
                   transformOrigin={{
-                    vertical: 'top', // Adjust to match the new position
-                    horizontal: 'right'
+                    vertical: 'top',
+                    horizontal: 'right',
                   }}
                   open={Boolean(anchorElNav)}
                   onClose={handleCloseNavMenu}
                   sx={{
-                    display: { xs: 'block', md: 'none' }
+                    display: { xs: 'block', md: 'none' },
                   }}
                 >
-                  {/* <Drawer
-                    open={isDrawerOpen}
-                    onClose={() => setIsDrawerOpen(false)}
-                  > */}
-
-                  {/* Responsive Menus List */}
-                  <List className='DrawerList w-56 '>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <Home />
-                      </ListItemIcon>
-                      <ListItemText
-                        style={{ textDecoration: 'none', color: 'red' }}
-                        primary={'Home'}
-                        onClick={() => {
-                          window.location.href = '/'
+                  <List className='DrawerList w-56'>
+                    {tabs.map((tab) => (
+                      <ListItemButton
+                        key={tab.value}
+                        selected={isActive(tab.href)}
+                        sx={{
+                          backgroundColor: isActive(tab.href)
+                            ? 'rgba(255, 255, 255, 0.1)'
+                            : 'transparent',
+                          '&.Mui-selected': {
+                            backgroundColor: 'rgba(255, 255, 255, 0.2)',
+                          },
                         }}
-                      />
-                    </ListItemButton>
-
-                    <ListItemButton className='bg-slate-300 '>
-                      <ListItemIcon>
-                        <InfoIcon />
-                      </ListItemIcon>
-                      <Link
-                        href='/'
-                        style={{ textDecoration: 'none', color: 'red' }}
+                        onClick={handleCloseNavMenu}
                       >
-                        <ListItemText
-                          onClick={handleCloseNavMenu}
-                          primary={'About'}
-                        />{' '}
-                      </Link>
-                    </ListItemButton>
-
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <ManageAccountsIcon />
-                      </ListItemIcon>
-                      <Link
-                        href='/skills'
-                        style={{ textDecoration: 'none', color: 'red' }}
-                      >
-                        <ListItemText
-                          onClick={handleCloseNavMenu}
-                          primary={'Skills'}
-                        />
-                      </Link>
-                    </ListItemButton>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <TimelineIcon />
-                      </ListItemIcon>
-                      <Link
-                        href='dashboard/projects/create'
-                        style={{ textDecoration: 'none', color: 'red' }}
-                      >
-                        <ListItemText
-                          onClick={handleCloseNavMenu}
-                          primary={'Projects'}
-                        />
-                      </Link>
-                    </ListItemButton>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <AddReactionIcon />
-                      </ListItemIcon>
-                      <Link
-                        href='/blogs'
-                        style={{ textDecoration: 'none', color: 'red' }}
-                      >
-                        <ListItemText
-                          onClick={handleCloseNavMenu}
-                          primary={'Blogs'}
-                        />
-                      </Link>
-                    </ListItemButton>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        <ContactMailIcon />
-                      </ListItemIcon>
-                      <Link
-                        href='/contact'
-                        style={{ textDecoration: 'none', color: 'red' }}
-                      >
-                        <ListItemText
-                          onClick={handleCloseNavMenu}
-                          primary={'Contact'}
-                        />
-                      </Link>
-                    </ListItemButton>
+                        <ListItemIcon sx={{ color: isActive(tab.href) ? '#ff0000' : 'inherit' }}>
+                          {tab.icon}
+                        </ListItemIcon>
+                        <Link
+                          href={tab.href}
+                          style={{
+                            textDecoration: 'none',
+                            color: isActive(tab.href) ? '#ff0000' : 'inherit',
+                            width: '100%',
+                          }}
+                        >
+                          <ListItemText 
+                            primary={tab.label} 
+                            primaryTypographyProps={{
+                              fontWeight: isActive(tab.href) ? 'bold' : 'normal',
+                            }}
+                          />
+                        </Link>
+                      </ListItemButton>
+                    ))}
                   </List>
                 </Menu>
               </Box>
@@ -389,7 +268,7 @@ const NavbarUI = () => {
         </AppBar>
       </HideOnScroll>
     </>
-  )
-}
+  );
+};
 
-export default NavbarUI
+export default NavbarUI;
